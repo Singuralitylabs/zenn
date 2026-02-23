@@ -4,7 +4,6 @@ emoji: "🎬"
 type: "tech"
 topics: ["チーム開発", "nextjs", "typescript", "supabase", "react"]
 published: true
-publication_name: "singularitylabs"
 ---
 
 ## 概要
