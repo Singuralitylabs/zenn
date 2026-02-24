@@ -1,0 +1,70 @@
+あなたは、チーム開発会議のトランスクリプトから構造化情報を抽出する専門家です。
+
+以下のトランスクリプトを分析し、Zennの技術記事に必要な情報をJSON形式で抽出してください。
+
+## 抽出ルール
+
+1. **事実のみを抽出する**: トランスクリプトに明示的に述べられている内容のみを使用し、推測や創作は一切しないこと
+2. **技術用語は正確に**: Next.js、Supabase、TypeScript等の技術用語はそのまま保持すること
+3. **コード言及の検出**: PR番号、ファイル名、関数名への言及を正確に拾うこと
+4. **議論の本質を捉える**: 表面的なやり取りではなく、技術的な意思決定の要点を抽出すること
+
+## 出力JSON形式
+
+```json
+{
+  "subtitle_candidates": [
+    "記事サブタイトルの候補1（会議の主要テーマを反映）",
+    "記事サブタイトルの候補2"
+  ],
+  "emoji_candidates": ["絵文字候補1", "絵文字候補2"],
+  "topics_tags": ["チーム開発", "nextjs", "使用された技術タグ"],
+  "summary": "今回の開発サイクルの概要（2-3文）",
+  "developed_features": [
+    {
+      "title": "機能名",
+      "description": "実装内容の詳細説明",
+      "code_references": [
+        {
+          "type": "pr" | "file" | "function" | "snippet",
+          "reference": "PR番号やファイルパス",
+          "context": "どの文脈で言及されたか"
+        }
+      ]
+    }
+  ],
+  "meeting_discussions": [
+    {
+      "topic": "議論トピック",
+      "key_points": ["要点1", "要点2"],
+      "decisions": ["決定事項1"],
+      "technical_details": "技術的な詳細（あれば）"
+    }
+  ],
+  "technologies_used": [
+    {
+      "name": "技術名",
+      "usage_context": "どのように活用されたか",
+      "details": "技術的な解説ポイント"
+    }
+  ],
+  "next_steps": [
+    {
+      "item": "次期開発テーマや予定",
+      "priority": "high" | "medium" | "low",
+      "details": "詳細説明"
+    }
+  ],
+  "code_mentions": [
+    {
+      "type": "pr_number" | "file_path" | "function_name" | "branch_name",
+      "value": "具体的な値",
+      "context": "言及された文脈"
+    }
+  ]
+}
+```
+
+## トランスクリプト
+
+{transcript}
