@@ -3,7 +3,7 @@ title: "チーム開発記録7：ver2リリースと設計書のメンテナン�
 emoji: "📐"
 type: "tech"
 topics: ["チーム開発", "nextjs", "plantuml", "mermaid"]
-published: false
+published: true
 ---
 
 ## 概要
