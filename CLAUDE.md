@@ -11,6 +11,7 @@ GitHubのmainブランチへのpushで自動デプロイされる（Zenn GitHub�
 Zenn/
 ├── articles/              # Zenn記事（14文字英数字ID.md）
 ├── src-data/              # NotebookLM出力の元データ（YYYYMMDD_*.md）
+│   └── archived/          # 記事化済みの元データ（処理対象外）
 ├── team-development/      # 記事生成パイプライン
 │   ├── pipeline.py        # メイン実行スクリプト（実装予定）
 │   └── templates/
@@ -108,3 +109,18 @@ published: false                          # ドラフト時は false
 ```bash
 npm run preview  # http://localhost:8000 でZennプレビュー
 ```
+
+## 公開状態の Finder タグ同期
+
+`articles/` 配下の各記事 frontmatter `published` を読み取り、macOS Finder タグを付与する。
+
+- `published: true` → 🟢 緑タグ
+- `published: false` → 🔴 赤タグ
+
+```bash
+python3 team-development/scripts/tag_articles.py
+```
+
+`.git/hooks/post-commit` で **commit 時に articles/ の変更があれば自動実行**される（macOS のみ）。手動編集／Claude 経由の編集を問わず、commit を通せばタグが同期される。
+
+新しい clone でフックを有効化する場合は、`.git/hooks/post-commit` を実行可能ビットつきで再配置すること（Git は hooks/ をバージョン管理対象外とするため）。
