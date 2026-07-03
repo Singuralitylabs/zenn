@@ -124,3 +124,18 @@ python3 team-development/scripts/tag_articles.py
 `.git/hooks/post-commit` で **commit 時に articles/ の変更があれば自動実行**される（macOS のみ）。手動編集／Claude 経由の編集を問わず、commit を通せばタグが同期される。
 
 新しい clone でフックを有効化する場合は、`.git/hooks/post-commit` を実行可能ビットつきで再配置すること（Git は hooks/ をバージョン管理対象外とするため）。
+
+## articles-index/（公開状態つき記事一覧）
+
+記事ファイル名（= Zennスラッグ = URL）はリネームできないため、エディタのツリーで記事番号順・公開状態を見えるようにする **シンボリックリンクの一覧** を `articles-index/` に自動生成している。
+
+- リンク名: `<記録番号2桁>_<🟢|🔴>_<サブタイトル>.md`（シリーズ外の記事は `zz_` プレフィックス）
+- 🟢 = `published: true` / 🔴 = `published: false`
+- リンクを開けば `articles/` の実体をそのまま編集できる
+- 生成物のため `.gitignore` 対象。Zennのデプロイには影響しない
+
+```bash
+python3 team-development/scripts/generate_article_index.py
+```
+
+post-commit フックで Finder タグと同時に自動再生成される。**記事のタイトル・published を変更したら commit すれば同期される**（即時に反映したい場合は上記を手動実行）。
