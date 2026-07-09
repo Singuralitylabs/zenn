@@ -3,7 +3,7 @@ title: "チーム開発記録24：PRテンプレ刷新とver4.1"
 emoji: "📝"
 type: "tech"
 topics: ["チーム開発", "github", "jest", "nextjs", "githubactions"]
-published: false
+published: true
 ---
 
 ## 概要
