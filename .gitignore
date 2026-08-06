@@ -1,5 +1,8 @@
 node_modules
 .DS_Store
-.claude/
+# .claude/ 配下は settings.local.json 等を除外しつつ、
+# skills だけはリポジトリ固有の作業手順なので Git 管理対象にする
+.claude/*
+!.claude/skills/
 src-data/
 articles-index/
