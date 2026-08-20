@@ -3,7 +3,7 @@ title: "チーム開発記録35：役職タグ表示とチェリーピック"
 emoji: "🪪"
 type: "tech"
 topics: ["チーム開発", "supabase", "typescript", "githubactions", "git"]
-published: false
+published: true
 ---
 
 ## 概要
