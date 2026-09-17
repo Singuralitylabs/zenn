@@ -3,7 +3,7 @@ title: "チーム開発記録41：Jest単体テストの導入"
 emoji: "🧪"
 type: "tech"
 topics: ["チーム開発", "jest", "githubactions", "claudecode", "typescript"]
-published: false
+published: true
 ---
 
 ## 概要
